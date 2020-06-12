@@ -6,8 +6,8 @@ import android.content.Context
 class data(appContext: Context) {
     val context = appContext
 
-    val serverIP = dataModule< String >(context, "serverIP", "")
-    val serverPort = dataModule< String >(context, "serverPort", "")
+    val serverIP = dataModule< String >(context, "serverIP", "192.186.100.26")
+    val serverPort = dataModule< String >(context, "serverPort", "12345")
 
     init{
         serverIP.setType<String>()

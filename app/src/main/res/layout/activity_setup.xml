@@ -1,9 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.setup">
+    android:background="@color/tienditApp_white"
+    android:orientation="vertical"
+    android:id="@+id/pantalla_ayuda_screen"
+    tools:context="mx.ipn.escom.tienditappclient.activities.setup">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/pantalla_ayuda_atras"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:padding="13dp"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/ic_stock_row_left" />
+
+        <TextView
+            android:id="@+id/pantalla_ayuda_titulo"
+            android:layout_gravity="center"
+            android:padding="3dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/tienditApp_gray"
+            android:text="Configuración del Servidor"
+            android:textSize="18sp"
+            />
+    </TableRow>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/tienditApp_gray"
+                android:text="Configuración Actual"
+                ></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="@color/tienditApp_gray"
+                android:text="0.0.0.0:0000"
+                ></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:textColor="@color/tienditApp_gray"
+                android:text="Cambiar Configuración:"
+                ></TextView>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="20dp"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    app:srcCompat="@drawable/ic_stock_server" />
+
+                <EditText
+                    android:id="@+id/setup_serverData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:paddingHorizontal="10dp"
+                    android:hint="IP del servidor"
+                    android:textCursorDrawable="@color/tienditApp_burning"
+                    android:textColorHint="@color/tienditApp_burning"
+                    android:textColor="@color/tienditApp_gray"
+                    android:backgroundTint="@color/tienditApp_burning"
+                    android:inputType="textUri" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingHorizontal="20dp"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    app:srcCompat="@drawable/ic_stock_port" />
+
+                <EditText
+                    android:id="@+id/setup_portData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:paddingHorizontal="10dp"
+                    android:hint="Número de Puerto"
+                    android:textCursorDrawable="@color/tienditApp_burning"
+                    android:textColorHint="@color/tienditApp_burning"
+                    android:textColor="@color/tienditApp_gray"
+                    android:backgroundTint="@color/tienditApp_burning"
+                    android:inputType="number" />
+            </TableRow>
+
+            <Button
+                android:id="@+id/setup_check"
+                android:gravity="center"
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/tienditApp_white"
+                android:background="@drawable/button_burning"
+                android:text="Probar Configuración" />
+
+            <Button
+                android:id="@+id/setup_save"
+                android:gravity="center"
+                android:clickable="false"
+                android:layout_gravity="center"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/tienditApp_white"
+                android:background="@drawable/button_shaded"
+                android:text="Salvar" />
+
+            <ImageView
+                android:id="@+id/setup_logo"
+                android:layout_marginTop="60dp"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_tienditapp_logo" />
+
+            <TextView
+                android:id="@+id/setup_authors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:paddingHorizontal="20dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="11sp"
+                android:textColor="@color/tienditApp_burning"
+                android:text="La Aplicación tienditApp es un proyecto (P1) para el curso de Aplicaciones para Comunicaciones de Red de la Escuela Superior de Cómputo\nCurso impartido por la M en C. Bautista Rosales Sandra Ivette\nLos miembros del equipo son:\n Enya Quetzalli Gómez Rodríguez\n(Eduardo Gómez Rodríguez)\nCarlos Enrique Contreras Casas" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

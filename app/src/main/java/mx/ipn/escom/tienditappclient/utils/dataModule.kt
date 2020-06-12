@@ -5,12 +5,12 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 //@author github.com/equetzal -> Enya Quetzalli
-class dataModule <T> (context : Context, saveId : String, defaultJsonAnswer : String){
+class dataModule <T> (context : Context, saveId : String, defaultAnswer : String){
     val context = context
     val saveId = saveId
     val statusId = "are" + saveId + "Saved"
     var objectType = object : TypeToken<T>() {}.type
-    val defaultAnswer = defaultJsonAnswer
+    val defaultAnswer = defaultAnswer
 
     fun setSavedStatus(status : Boolean){
         context.getSharedPreferences(statusId, Context.MODE_PRIVATE).edit().putBoolean(statusId, status).apply()

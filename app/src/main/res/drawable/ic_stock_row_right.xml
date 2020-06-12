@@ -1,0 +1,9 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="565dp"
+    android:height="964dp"
+    android:viewportWidth="565"
+    android:viewportHeight="964">
+  <path
+      android:pathData="M116.2,19.8l434.6,429.5c18.1,17.7 18.4,46.8 0.6,64.8c-0.2,0.2 -0.4,0.4 -0.6,0.6L116.2,944.4c-26.6,26.2 -69.3,26.2 -95.9,0c-26.2,-25.8 -26.5,-67.9 -0.7,-94.1c0.2,-0.2 0.5,-0.5 0.7,-0.7l371.8,-367.5L20.2,114.7c-26.2,-25.8 -26.5,-68 -0.6,-94.2c0.2,-0.2 0.4,-0.4 0.6,-0.6C46.9,-6.3 89.6,-6.3 116.2,19.8"
+      android:fillColor="@color/tienditApp_burning"/>
+</vector>
