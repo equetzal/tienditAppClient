@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fillViewport="true"
+    tools:context="mx.ipn.escom.tienditappclient.activities.login">
+
+    <LinearLayout
+        android:id="@+id/pantalla_login_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/tienditApp_white"
+        android:weightSum="30"
+        >
+
+        <ImageView
+            android:id="@+id/login_logo"
+            android:layout_width="300dp"
+            android:layout_height="240dp"
+            android:paddingHorizontal="50dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_tienditapp_logo" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/login_mainText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:gravity="center"
+            android:text="Inicio de Sesión" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_weight="3"
+            android:layout_height="wrap_content" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginHorizontal="20dp"
+                app:srcCompat="@drawable/ic_user" />
+
+            <EditText
+                android:id="@+id/pantalla_login_inputUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:paddingHorizontal="10dp"
+                android:hint="Número de Cliente"
+                android:textCursorDrawable="@color/tienditApp_burning"
+                android:textColorHint="@color/tienditApp_burning"
+                android:textColor="@color/tienditApp_gray"
+                android:backgroundTint="@color/tienditApp_burning"
+                android:inputType="textNoSuggestions" />
+        </TableRow>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_weight="3"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_weight="3"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/pantalla_login_entrar"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:textColor="@color/tienditApp_white"
+            android:background="@drawable/button_burning"
+            android:text="Entrar" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_weight="5"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/login_register"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/tienditApp_fire"
+            android:text="Registrarse" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/login_setup"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="13dp"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/ic_cog" />
+
+
+    </LinearLayout>
+</ScrollView>

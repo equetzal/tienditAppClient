@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle"   >
+    <gradient
+        android:useLevel="false"
+        android:centerY="0.5"
+        android:startColor="@color/tienditApp_burning"
+        android:endColor="@color/tienditApp_fire"
+        />
+    <corners
+        android:radius="25dp"   >
+    </corners>
+</shape>
