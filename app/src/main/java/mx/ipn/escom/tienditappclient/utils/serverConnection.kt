@@ -1,6 +1,7 @@
 package mx.ipn.escom.tienditappclient.utils
 
 import android.content.Context
+import android.content.LocusId
 import android.util.Log
 import android.webkit.MimeTypeMap
 import com.google.gson.Gson
@@ -44,5 +45,36 @@ class serverConnection(context:Context){
         return ans
     }
 
+    fun login(userId:String) : Boolean{
+        var ans = false
+        try {
+            val socket = Socket(ip, port)
+            val dataOutputStream = DataOutputStream(socket.getOutputStream())
+            val dataInputStream =  DataInputStream(socket.getInputStream())
+
+            val request = jsonRequest()
+            request.operationId = 2
+            request.clientId = userId.toInt()
+
+            dataOutputStream.writeUTF(Gson().toJson(request))
+            dataOutputStream.flush()
+
+            val json = dataInputStream.readUTF()
+            val response = Gson().fromJson(json, jsonResponse::class.java)
+            if(response.isLoginOk!!){
+                ans = true
+                dt.clientId.save(userId.toInt())
+                dt.clientName.save(response.clientName!!)
+            }
+
+            dataInputStream.close()
+            dataOutputStream.close()
+            socket.close()
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
+
+        return ans
+    }
 
 }

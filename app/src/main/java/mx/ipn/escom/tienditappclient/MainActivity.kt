@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        data(this).serverIP.save("1.1.1.1")
-        data(this).serverPort.save("123")
+        //data(this).serverIP.save("1.1.1.1")
+        //data(this).serverPort.save("123")
 
         Handler().postDelayed({
             val intent = Intent(this, login::class.java)
