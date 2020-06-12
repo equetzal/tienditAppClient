@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_gravity="center_vertical"
     android:weightSum="30"
-    android:id="@+id/pantalla_carga_screen"
+    android:id="@+id/main_background"
     tools:context="mx.ipn.escom.tienditappclient.MainActivity">
 
     <Space

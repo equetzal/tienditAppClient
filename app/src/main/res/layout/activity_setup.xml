@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/tienditApp_white"
     android:orientation="vertical"
-    android:id="@+id/pantalla_ayuda_screen"
+    android:id="@+id/setup_background"
     tools:context="mx.ipn.escom.tienditappclient.activities.setup">
 
     <TableRow

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fillViewport="true"
+    android:id="@+id/login_background"
     tools:context="mx.ipn.escom.tienditappclient.activities.login">
 
     <LinearLayout

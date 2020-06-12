@@ -77,4 +77,35 @@ class serverConnection(context:Context){
         return ans
     }
 
+    fun signup(clientName:String) : Boolean{
+        var ans = false
+        try {
+            val socket = Socket(ip, port)
+            val dataOutputStream = DataOutputStream(socket.getOutputStream())
+            val dataInputStream =  DataInputStream(socket.getInputStream())
+
+            val request = jsonRequest()
+            request.operationId = 1
+            request.clientName = clientName
+
+            dataOutputStream.writeUTF(Gson().toJson(request))
+            dataOutputStream.flush()
+
+            val json = dataInputStream.readUTF()
+            val response = Gson().fromJson(json, jsonResponse::class.java)
+            if(response.clientId!! != -1){
+                ans = true
+                dt.clientId.save(response.clientId!!)
+                dt.clientName.save(clientName)
+            }
+
+            dataInputStream.close()
+            dataOutputStream.close()
+            socket.close()
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
+
+        return ans
+    }
 }

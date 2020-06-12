@@ -1,9 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.register">
+    android:background="@color/tienditApp_white"
+    android:orientation="vertical"
+    android:id="@+id/register_background"
+    tools:context="mx.ipn.escom.tienditappclient.activities.setup">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/register_exit"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:padding="13dp"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/ic_stock_row_left" />
+
+        <TextView
+            android:id="@+id/pantalla_ayuda_titulo"
+            android:layout_gravity="center"
+            android:padding="3dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/tienditApp_gray"
+            android:text="Registro"
+            android:textSize="18sp"
+            />
+    </TableRow>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:id="@+id/register_nameField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:paddingHorizontal="20dp"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    app:srcCompat="@drawable/ic_stock_user" />
+
+                <EditText
+                    android:id="@+id/register_clientName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:paddingHorizontal="10dp"
+                    android:hint="Ingresa tu Nombre Completo"
+                    android:textCursorDrawable="@color/tienditApp_burning"
+                    android:textColorHint="@color/tienditApp_burning"
+                    android:textColor="@color/tienditApp_gray"
+                    android:backgroundTint="@color/tienditApp_burning"
+                    android:inputType="text" />
+            </TableRow>
+
+            <Button
+                android:id="@+id/register_signup"
+                android:gravity="center"
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/tienditApp_white"
+                android:background="@drawable/button_burning"
+                android:text="register_signup" />
+
+
+            <TextView
+                android:id="@+id/register_generatedId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/tienditApp_gray"
+                android:text="Tu usuario generado es:"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/register_clientId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="80sp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/tienditApp_burning"
+                android:text="-1"
+                ></TextView>
+
+
+            <ImageView
+                android:id="@+id/setup_logo"
+                android:layout_marginTop="60dp"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_tienditapp_logo" />
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
