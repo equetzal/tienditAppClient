@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromDegrees = "-90"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:toDegrees="990"
+    >
+
+    <shape
+        android:shape="ring"
+        android:thickness="2dp"
+        android:useLevel="false"
+        >
+
+        <gradient
+            android:useLevel="false"
+            android:centerY="0.5"
+            android:type="sweep"
+            android:startColor="@android:color/transparent"
+            android:centerColor="@color/tienditApp_gradientEnd"
+            android:endColor="@color/tienditApp_gradientStart"
+
+            />
+
+    </shape>
+
+</rotate>

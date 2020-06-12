@@ -3,4 +3,20 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="tienditApp_blue">#007AFF</color>
+    <color name="tienditApp_purple">#C350FA</color>
+    <color name="tienditApp_yellow">#FFCC00</color>
+    <color name="tienditApp_orange">#FF9500</color>
+    <color name="tienditApp_green">#4CD964</color>
+    <color name="tienditApp_red">#FF3B30</color>
+    <color name="tienditApp_light">#C8C8C8</color>
+    <color name="tienditApp_dark">#1D1D1D</color>
+    <color name="tienditApp_white">#FFFFFF</color>
+    <color name="tienditApp_aqua">#6FC1C3</color>
+    <color name="tienditApp_gray">#3F3E3F</color>
+    <color name="tienditApp_fire">#FF4B2B</color>
+    <color name="tienditApp_burning">#FF416C</color>
+    <color name="tienditApp_gradientStart">#FF416C</color>
+    <color name="tienditApp_gradientEnd">#FF4B2B</color>
 </resources>
