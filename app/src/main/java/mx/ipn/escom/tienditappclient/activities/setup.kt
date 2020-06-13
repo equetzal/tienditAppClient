@@ -18,6 +18,7 @@ class setup : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setup)
+        findViewById<Button>(R.id.setup_save).isClickable = false
 
         findViewById<ImageButton>(R.id.setup_exit).setOnClickListener{
             finish()

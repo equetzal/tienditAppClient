@@ -1,0 +1,15 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="1000dp"
+    android:height="598dp"
+    android:viewportWidth="1000"
+    android:viewportHeight="598">
+  <path
+      android:pathData="M1.87,0.12h996.26v39.85h-996.26z"
+      android:fillColor="@color/tienditApp_gray"/>
+  <path
+      android:pathData="M1.87,279.07h996.26v39.85h-996.26z"
+      android:fillColor="@color/tienditApp_gray"/>
+  <path
+      android:pathData="M1.87,558.03h996.26v39.85h-996.26z"
+      android:fillColor="@color/tienditApp_gray"/>
+</vector>
