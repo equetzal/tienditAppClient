@@ -65,7 +65,7 @@ class view_products : Fragment() {
 
             val recyclerView = view?.findViewById<RecyclerView>(R.id.view_products_recyclerView)
             recyclerView?.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-            recyclerView?.adapter = adapter_products(listOfProducts)
+            recyclerView?.adapter = adapter_products(listOfProducts, requireContext())
             view!!.findViewById<RelativeLayout>(R.id.view_products_progress).visibility = View.GONE
             view?.findViewById<SwipeRefreshLayout>(R.id.view_products_swipe)?.isRefreshing = false
         }

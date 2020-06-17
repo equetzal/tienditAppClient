@@ -209,4 +209,117 @@ class serverConnection(context:Context){
 
         dt.productRelation.save(productRelation)
     }
+
+    fun addToCart(productId: Int, amount:Int) : Boolean {
+        var ans = false
+        try {
+            val socket = Socket(ip, port)
+            val dataOutputStream = DataOutputStream(socket.getOutputStream())
+            val dataInputStream = DataInputStream(socket.getInputStream())
+
+            val request = jsonRequest()
+            request.operationId = 8
+            request.clientId = dt.clientId.getData()
+            request.productId = productId
+            request.productAmount = amount
+
+            dataOutputStream.writeUTF(Gson().toJson(request))
+            dataOutputStream.flush()
+
+            val json = dataInputStream.readUTF()
+            val response = Gson().fromJson(json, jsonResponse::class.java)
+            if (response.isCartUpdateSuccessful!!) {
+                ans = true
+                val cart = dt.cart.getData()
+                var actAmount: Int = if (cart[productId] == null) 0 else cart[productId]!!
+                actAmount++
+                cart[productId] = actAmount
+                Log.d("Cart", Gson().toJson(cart))
+                dt.cart.save(cart)
+                dt.total.save((response.total!!))
+            }
+
+            dataInputStream.close()
+            dataOutputStream.close()
+            socket.close()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        return ans
+    }
+
+    fun quitFromCart(productId: Int, amount:Int) : Boolean {
+        var ans = false
+        try {
+            val socket = Socket(ip, port)
+            val dataOutputStream = DataOutputStream(socket.getOutputStream())
+            val dataInputStream = DataInputStream(socket.getInputStream())
+
+            val request = jsonRequest()
+            request.operationId = 9
+            request.clientId = dt.clientId.getData()
+            request.productId = productId
+            request.productAmount = amount
+
+            dataOutputStream.writeUTF(Gson().toJson(request))
+            dataOutputStream.flush()
+
+            val json = dataInputStream.readUTF()
+            val response = Gson().fromJson(json, jsonResponse::class.java)
+            if (response.isCartUpdateSuccessful!!) {
+                ans = true
+                val cart = dt.cart.getData()
+                var actAmount: Int = if (cart[productId] == null) 0 else cart[productId]!!
+                actAmount--
+                cart[productId] = actAmount
+                Log.d("Cart", Gson().toJson(cart))
+                dt.cart.save(cart)
+                dt.total.save((response.total!!))
+            }
+
+            dataInputStream.close()
+            dataOutputStream.close()
+            socket.close()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        return ans
+    }
+
+    fun getCart() : Boolean {
+        var ans = false
+        try {
+            val socket = Socket(ip, port)
+            val dataOutputStream = DataOutputStream(socket.getOutputStream())
+            val dataInputStream = DataInputStream(socket.getInputStream())
+
+            val request = jsonRequest()
+            request.operationId = 11
+            request.clientId = dt.clientId.getData()
+
+            dataOutputStream.writeUTF(Gson().toJson(request))
+            dataOutputStream.flush()
+
+            val json = dataInputStream.readUTF()
+            val response = Gson().fromJson(json, jsonResponse::class.java)
+            if (response.cartList != null) {
+                ans = true
+                dt.cart.save(response.cartList as MutableMap<Int, Int>)
+                dt.total.save((response.total!!))
+            }
+
+            dataInputStream.close()
+            dataOutputStream.close()
+            socket.close()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        return ans
+    }
+
+
+
 }

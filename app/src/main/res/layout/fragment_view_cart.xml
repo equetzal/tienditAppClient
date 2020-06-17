@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/cart_background"
+    android:background="@color/tienditApp_white"
+    android:clickable="true"
+    tools:context=".activities.view_cart">
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/cart_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:orientation="vertical" >
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/cart_recyclerView"
+                        android:layout_width="match_parent"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/cart_total"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:paddingHorizontal="30dp"
+                        android:textAlignment="textEnd"
+                        android:text="Total: "
+                        android:textColor="@color/tienditApp_gray"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/cart_buy"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                        android:textColor="@color/tienditApp_white"
+                        android:background="@drawable/button_burning"
+                        android:text="Comprar" />
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <RelativeLayout
+                android:id="@+id/cart_progress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/tienditApp_white"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:clickable="true"
+                >
+
+                <ProgressBar
+                    android:id="@+id/cart_progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_gravity="center"
+                    android:indeterminateDrawable="@drawable/orange_progress_bar"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp" />
+
+                <TextView
+                    android:id="@+id/cart_failed"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hubo un problema en la descarga de datos"
+                    android:textColor="@color/tienditApp_fire"
+                    />
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</FrameLayout>

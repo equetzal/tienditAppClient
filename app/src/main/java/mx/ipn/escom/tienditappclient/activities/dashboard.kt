@@ -6,6 +6,8 @@ import android.view.animation.Animation
 import android.view.animation.Transformation
 import android.widget.ImageButton
 import android.widget.RelativeLayout
+import android.widget.TableRow
+import androidx.fragment.app.Fragment
 import mx.ipn.escom.tienditappclient.R
 
 class dashboard : AppCompatActivity() {
@@ -18,6 +20,16 @@ class dashboard : AppCompatActivity() {
 
         findViewById<ImageButton>(R.id.dashboard_bar_menuButton).setOnClickListener{
             slideMenu()
+        }
+
+        findViewById<TableRow>(R.id.dashboard_menu_viewCart).setOnClickListener {
+            loadFragment(view_cart())
+        }
+        findViewById<TableRow>(R.id.dashboard_menu_viewProducts).setOnClickListener {
+            loadFragment(view_products())
+        }
+        findViewById<TableRow>(R.id.dashboard_menu_editProducts).setOnClickListener {
+            loadFragment(edit_products())
         }
     }
 
@@ -76,5 +88,19 @@ class dashboard : AppCompatActivity() {
         val params = menuLayout.layoutParams
         params.width = (resources.displayMetrics.widthPixels * 0.8).toInt()
         menuLayout.layoutParams = params
+    }
+
+    override fun onBackPressed() {
+        if(isContentOn)
+            slideMenu()
+        else
+            finish()
+    }
+
+    private fun loadFragment(fragment : Fragment){
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.dashboard_content_fragmentContent, fragment)
+        fragmentTransaction.commit()
+        slideMenu()
     }
 }

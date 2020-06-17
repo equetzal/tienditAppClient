@@ -13,6 +13,7 @@ class data(appContext: Context) {
     val clientName = dataModule< String >(context, "clientName", "")
     val productRelation = dataModule< Map<Int, Pair<producto, String>> >(context, "productRelation", "{}")
     val cart = dataModule< MutableMap<Int,Int> > (context, "cart", "{}")
+    val total = dataModule< Double > (context, "totalOnCart", "0.0")
 
     init{
         serverIP.setType<String>()
@@ -20,6 +21,7 @@ class data(appContext: Context) {
         clientId.setType<Int>()
         productRelation.setType<MutableMap<Int, Pair<producto, String>>>()
         cart.setType<MutableMap<Int,Int>>()
+        total.setType<Double>()
     }
 
     fun deleteSavedData(){
@@ -28,5 +30,6 @@ class data(appContext: Context) {
         clientId.delete()
         productRelation.delete()
         cart.delete()
+        total.delete()
     }
 }
