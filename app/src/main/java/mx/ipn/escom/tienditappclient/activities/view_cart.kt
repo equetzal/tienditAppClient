@@ -1,24 +1,36 @@
 package mx.ipn.escom.tienditappclient.activities
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import cart_item
+import mx.ipn.escom.tienditappclient.BuildConfig
 import mx.ipn.escom.tienditappclient.R
 import mx.ipn.escom.tienditappclient.adapters.adapter_cart
-import mx.ipn.escom.tienditappclient.adapters.adapter_products
 import mx.ipn.escom.tienditappclient.utils.data
 import mx.ipn.escom.tienditappclient.utils.serverConnection
+import java.io.File
+
+private const val MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: Int = 7474
 
 class view_cart : Fragment() {
     lateinit var dt:data
@@ -44,7 +56,48 @@ class view_cart : Fragment() {
             loadCart().execute()
         }
 
+        view?.findViewById<Button>(R.id.cart_buy).setOnClickListener {
+            if (ContextCompat.checkSelfPermission(requireContext(),
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                } else {
+                    ActivityCompat.requestPermissions(requireActivity(),
+                        arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                        MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE)
+                }
+            } else {
+                buyCart().execute()
+            }
+        }
+
         loadCart().execute()
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int,
+                                            permissions: Array<String>, grantResults: IntArray) {
+        when (requestCode) {
+            MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE -> {
+                // If request is cancelled, the result arrays are empty.
+                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                    buyCart().execute()
+                } else {
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    Toast.makeText(requireContext(), "No se podrá guardar el recibo de compra", Toast.LENGTH_LONG).show()
+                }
+                return
+            }
+
+            // Add other 'when' lines to check for other
+            // permissions this app might request.
+            else -> {
+                // Ignore all other requests.
+            }
+        }
     }
 
     inner class loadCart: AsyncTask<String, Void, Void>(){
@@ -79,4 +132,37 @@ class view_cart : Fragment() {
             view!!.findViewById<SwipeRefreshLayout>(R.id.cart_swipe)?.isRefreshing = false
         }
     }
+
+    inner class buyCart: AsyncTask<String, Void, File>(){
+        override fun onPreExecute(){
+
+        }
+        override fun doInBackground(vararg params: String?): File? {
+            return serverConnection(requireContext()).buyCart()
+        }
+
+        override fun onPostExecute(pdfFile: File?) {
+            if(pdfFile != null)
+                openPDFFile(pdfFile)
+            else
+                Toast.makeText(requireContext(), "Hubo un error con la compra", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    fun openPDFFile(pdfFile:File) {
+        if (pdfFile.exists()) {
+            val pdfURI: Uri = FileProvider.getUriForFile(
+                requireContext(), BuildConfig.APPLICATION_ID.toString() + ".fileprovider",
+                pdfFile
+            )
+            Log.d("URI:", pdfURI.toString())
+            val Go = Intent(Intent.ACTION_VIEW)
+            Go.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            Go.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+            Go.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            Go.setDataAndType(pdfURI, "application/pdf")
+            startActivity(Go)
+        }
+    }
+
 }

@@ -3,13 +3,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/edit_list_background"
     android:background="@color/tienditApp_white"
+    android:clickable="true"
     tools:context=".activities.edit_products">
 
-    <TextView
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/edit_list_swipe"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/tienditApp_gray"
-        android:text="Edit Products" />
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:orientation="vertical" >
+
+                    <Button
+                        android:id="@+id/edit_list_addProduct"
+                        android:gravity="center"
+                        android:layout_marginVertical="20dp"
+                        android:layout_gravity="center"
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/tienditApp_white"
+                        android:background="@drawable/button_burning"
+                        android:text="Añadir Producto" />
+
+                    <TextView
+                        android:id="@+id/cart_total"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:paddingHorizontal="30dp"
+                        android:textAlignment="textStart"
+                        android:text="Selecciona un producto a editar: "
+                        android:textColor="@color/tienditApp_gray"
+                        android:textSize="18sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/edit_list_recyclerView"
+                        android:layout_width="match_parent"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <RelativeLayout
+                android:id="@+id/edit_list_progress"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/tienditApp_white"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:clickable="true"
+                >
+
+                <ProgressBar
+                    android:id="@+id/edit_list_progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_gravity="center"
+                    android:indeterminateDrawable="@drawable/orange_progress_bar"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp" />
+
+                <TextView
+                    android:id="@+id/edit_list_failed"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hubo un problema en la descarga de datos"
+                    android:textColor="@color/tienditApp_fire"
+                    />
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </FrameLayout>

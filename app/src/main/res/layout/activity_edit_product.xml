@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tienditApp_white"
+    android:orientation="vertical"
+    android:id="@+id/edit_product_background"
+    tools:context="mx.ipn.escom.tienditappclient.activities.edit_product">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/edit_product_exit"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:padding="13dp"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/ic_stock_row_left" />
+
+        <TextView
+            android:id="@+id/edit_product_titulo"
+            android:layout_gravity="center"
+            android:padding="3dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/tienditApp_gray"
+            android:text="Añadir Producto"
+            android:textSize="18sp"
+            />
+
+        <ImageButton
+            android:id="@+id/edit_product_delete"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:padding="13dp"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/ic_stock_trash" />
+
+    </TableRow>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/edit_product_image"
+                android:layout_marginTop="30dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_tienditapp_logo" />
+
+            <Button
+                android:id="@+id/edit_product_changeImage"
+                android:gravity="center"
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_width="180dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="10dp"
+                android:textAllCaps="false"
+                android:textColor="@color/tienditApp_white"
+                android:background="@drawable/button_burning"
+                android:text="Seleccionar Imagen" />
+
+
+            <TableRow
+                android:id="@+id/edit_product_nameField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingHorizontal="20dp"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    app:srcCompat="@drawable/ic_stock_edit" />
+
+                <EditText
+                    android:id="@+id/edit_product_name"
+                    android:cursorVisible="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:paddingHorizontal="10dp"
+                    android:hint="Nombre del producto"
+                    android:textCursorDrawable="@color/tienditApp_burning"
+                    android:textColorHint="@color/tienditApp_burning"
+                    android:textColor="@color/tienditApp_gray"
+                    android:backgroundTint="@color/tienditApp_burning"
+                    android:inputType="text" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/edit_product_skuField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="20dp"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    app:srcCompat="@drawable/ic_stock_edit" />
+
+                <EditText
+                    android:id="@+id/edit_product_sku"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:paddingHorizontal="10dp"
+                    android:hint="SKU del producto"
+                    android:textCursorDrawable="@color/tienditApp_burning"
+                    android:textColorHint="@color/tienditApp_burning"
+                    android:textColor="@color/tienditApp_gray"
+                    android:backgroundTint="@color/tienditApp_burning"
+                    android:inputType="text" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/edit_product_cantidadField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="20dp"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    app:srcCompat="@drawable/ic_stock_edit" />
+
+                <EditText
+                    android:id="@+id/edit_product_cantidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:paddingHorizontal="10dp"
+                    android:hint="Cantidad disponible"
+                    android:textCursorDrawable="@color/tienditApp_burning"
+                    android:textColorHint="@color/tienditApp_burning"
+                    android:textColor="@color/tienditApp_gray"
+                    android:backgroundTint="@color/tienditApp_burning"
+                    android:inputType="number" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/edit_product_precioField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="20dp"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    app:srcCompat="@drawable/ic_stock_edit" />
+
+                <EditText
+                    android:id="@+id/edit_product_precio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:paddingHorizontal="10dp"
+                    android:hint="Precio"
+                    android:textCursorDrawable="@color/tienditApp_burning"
+                    android:textColorHint="@color/tienditApp_burning"
+                    android:textColor="@color/tienditApp_gray"
+                    android:backgroundTint="@color/tienditApp_burning"
+                    android:inputType="numberDecimal" />
+            </TableRow>
+
+            <Button
+                android:id="@+id/edit_product_save"
+                android:gravity="center"
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="30dp"
+                android:textAllCaps="false"
+                android:textColor="@color/tienditApp_white"
+                android:background="@drawable/button_burning"
+                android:text="Salvar Cambios" />
+
+
+
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

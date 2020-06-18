@@ -7,7 +7,7 @@
     app:cardElevation="3dp"
     android:layout_marginHorizontal="0dp"
     android:layout_marginVertical="3dp"
-    android:id="@+id/item_card"
+    android:id="@+id/edit_card"
     app:cardBackgroundColor="@color/tienditApp_white"
     app:cardUseCompatPadding="true">
 
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:id="@+id/cart_item_name"
+                    android:id="@+id/edit_item_name"
                     android:layout_width="match_parent"
                     android:textAlignment="textStart"
                     android:textSize="15sp"
@@ -44,7 +44,7 @@
                     android:text="Name" />
 
                 <TextView
-                    android:id="@+id/cart_item_SKU"
+                    android:id="@+id/edit_item_SKU"
                     android:layout_width="match_parent"
                     android:textAlignment="textStart"
                     android:textSize="11sp"
@@ -63,35 +63,19 @@
             android:layout_weight="0"
             android:background="@color/tienditApp_white"
             android:layout_gravity="center_vertical"
-            android:gravity="center">
+            android:gravity="center_vertical">
 
 
             <ImageButton
-                android:id="@+id/cart_item_quitFromCart"
-                android:padding="5dp"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:id="@+id/edit_item_editProduct"
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:scaleType="fitCenter"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/ic_stock_minus" />
+                app:srcCompat="@drawable/ic_stock_edit" />
 
-            <TextView
-                android:id="@+id/cart_item_amount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/tienditApp_fire"
-                android:textSize="40sp"
-                android:layout_marginHorizontal="15dp"
-                android:text="#" />
-
-            <ImageButton
-                android:id="@+id/cart_item_addToCart"
-                android:padding="5dp"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:scaleType="fitCenter"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/ic_stock_plus" />
         </TableRow>
 
 
